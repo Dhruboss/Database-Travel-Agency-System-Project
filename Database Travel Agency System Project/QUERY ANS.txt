@@ -1,0 +1,9 @@
+1. SELECT AVG(TPRICE),SUM(TPRICE) FROM TICKET
+2. select max(Tprice) from ticket where Ttype= 'business_class'
+3. select p.pname, b.bid, p.pid from passenger p , transport b where b.bid= p.bid and b.bid = 601
+4. select p.pid, p.pname, t.ttype,t.tid from passenger p,ticket t where  p.pid (+) =t.tid and t.ttype= 'business_class'
+5. select d.dname , h.did, h.hname from drivers d, helps h where d.did= h.did
+6. select pid,pname,bid from passenger  where bid= (select bid from passenger where bid= 605)
+7. select pid,Ttype from passenger where Ttype= (select Ttype from ticket  where pid=701)
+8. SELECT DID,DNAME,ADATE FROM DRIVERS, DRI_OWN  WHERE ADATE = (SELECT ADATE FROM DRI_OWN WHERE ADATE= '21-APR-13' )
+9. SELECT BNAME, BID FROM TRANSPORT WHERE DID = (SELECT DID FROM TRANSPORT WHERE BNAME= 'GREENLINE')

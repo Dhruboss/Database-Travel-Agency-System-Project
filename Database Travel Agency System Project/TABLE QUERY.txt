@@ -1,0 +1,134 @@
+1. Create Table TICKET
+(
+  Tid number (10) constraint ticket_tid_pk2 primary key ,
+  Tprice number(10) not null,
+  Ttype  varchar(20) not null,
+  TAid number(10) constraints  Ticket_Agency_taid_fk3 references Ticket_Agency (TAid) 
+)
+DESC TICKET
+
+2. Create Table Ticket_Agency
+( 
+TAid  number (10) constraint Ticket_Agency_taid_pk3 primary key,
+TAname varchar(20) not null,
+TAphone number(20) unique
+)
+desc Ticket_Agency
+
+
+3. create table Seat
+(
+Sid number (10) constraint seat_sid_pk4 primary key,
+Stype varchar(20) not null
+)
+desc seat
+
+4. Create Table Passenger 
+(
+ Pid number(10) constraint passenger_pid_pk1 primary key,
+ Pname varchar(20) not null,
+ Paddress varchar(20) not null,
+ Pphone number(10) unique,
+ bid number (10) constraints Passenger_bid_fk1 references transport  (bid) 
+)
+
+DESC PASSENGER
+
+5. create table Owns
+(
+Oid number (10) constraint owns_Oid_pk1 primary key,
+Oname varchar2 (30) not null,
+Ophone number (20) unique
+)
+DESC OWNS
+
+
+6. create table Bus_Owns
+(
+BOid number (10) constraint Bus_Owns_BOid_pk1 primary key,
+Oid number (10) constraint drivers_oid_fk6 references Owns (Oid),
+bid number (10) constraint drivers_oid_fk66 references  Transport (bid)
+)
+desc Bus_Owns
+
+7. create table Helps
+(
+Hid number (10) constraint helps_Hid_pk1 primary key,
+Hname varchar2 (30) not null,
+Hphone number (20) unique,
+Did number (10) constraint helps_did_fk4 references drivers (Did)
+)
+
+desc Helps
+
+8. create table  contact
+(
+CTA_Pid number (10) constraint  contact_CTA_Pid_pk1 primary key,
+Cdate varchar (50) not null,
+TAid number (10) constraint contact_taid_fk7 references Ticket_Agency (TAid),
+Pid number (10) constraint contact_pid_fk8 references Passenger (Pid),
+)
+desc contact
+
+9. create table ticketing_system
+(
+t_id number(10) constraint ticketing_system_t_id_pk1 primary key,
+t_price number(5) not null,
+t_type varchar2(20) unique,
+Pid number(10) constraint ticketing_system_pid_Fk1 references passenger (Pid)
+)
+
+
+desc ticketing_system
+
+
+10. create table bookings
+(
+PT_id number(10) constraint bookings_PT_id_pk1 primary key,
+b_date number(15) not null,
+b_time number(10),
+Pid number(10) constraint bookings_pid_Fk1 references passenger (Pid) ,
+Tid number(10) constraint bookings_t_id_fk2 references ticket (Tid)
+)
+desc bookings
+
+
+
+
+11. create table transport
+(
+bid number(10) constraint transport_bid_pk1 primary key,
+bname varchar2(15) not null,
+bnumber number(15) unique,
+Did number(10) constraint transport_did_fk2 references Drivers (Did)
+)
+desc transport
+
+
+12. create table Drivers
+(
+Did number (10) constraint drivers_did_pk1 primary key,
+Dname varchar2 (30) not null,
+Dphone number (20)  unique,
+Daddress varchar2 (50) not null,
+Oid number (10) constraint drivers_oid_fk2 references owns (Oid)
+)
+
+DESC DRIVERS
+13. create table Dri_own
+(
+DOid number (10) constraint Dri_own_doid_pk1 primary key,
+Adate date not null,
+Did number (10) constraint dri_own_did_fk99 references Drivers (Did),
+Oid number (10) constraint drivers_oid_fk88 references Owns (Oid)
+)
+ DESC Dri_own
+
+14. create table Hire
+(
+Hid number (10) constraint hire_hid_pk1 primary key,
+Hname varchar2 (30) not null,
+Hphone number (20) unique,
+Oid number (10) constraint drivers_oid_fk3 references owns (Oid)
+)
+DESC HIRE

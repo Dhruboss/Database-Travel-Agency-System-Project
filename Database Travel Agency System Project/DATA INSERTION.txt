@@ -1,0 +1,110 @@
+1. desc ticket
+
+ insert into ticket
+(TID,TPRICE,TTYPE,TAID) values (105,400,'first_class',201)
+
+UPDATE TICKET SET TAID= 205 WHERE TID=104
+
+SELECT * FROM TICKET
+
+2. desc TICKET_AGENCY
+
+insert into ticket_AGENCY
+(TAID, TANAME, TAPHONE) values (205,'TRUST_TRAVEL_AGENCY',01949896781 )
+
+SELECT * FROM TICKET_AGENCY
+
+3. insert into seat
+(SID, STYPE) VALUES (305,'BUSINESS')
+
+SELECT * FROM SEAT
+
+
+4. desc OWNS
+
+insert into OWNS
+(OID,ONAME, OPHONE) VALUES (405,'AURTHER',01977779680 )
+
+SELECT * FROM OWNS
+
+5. DESC DRIVERS
+
+insert into DRIVERS
+(DID,DNAME, DPHONE, DADDRESS,OID) VALUES (504,'CONTE',0144988111,'MILAN', 403)
+
+SELECT * FROM DRIVERS
+
+
+6. DESC TRANSPORT
+
+insert into TRANSPORT
+(BID,BNAME, BNUMBER, DID) VALUES (605,'DESHTRAVELS',78707080,505)
+
+SELECT * FROM TRANSPORT
+
+7. DESC  Passenger 
+
+insert into  Passenger 
+(PID,PNAME,PADDRESS, PPHONE, BID) VALUES (705,'AUHONA_MAM','AIUB',01666659999,603)
+
+SELECT * FROM  Passenger
+
+UPDATE Passenger SET PADDRESS='BADDA'  WHERE PID= 703
+
+8. DESC  Bus_Owns
+
+insert into Bus_Owns 
+(BOID,OID, BID) VALUES (801,405,605)
+
+SELECT * FROM Bus_Owns 
+
+
+9. desc Helps
+
+
+insert into  Helps
+(HID,HNAME, HPHONE, DID) VALUES (905,'BALAM',01956666806,505,405)
+
+SELECT * FROM  Helps
+
+10. desc ticketing_system
+
+insert into  ticketing_system
+(T_ID,T_PRICE, T_TYPE, PID) VALUES (115,400,'first_classs',705)
+
+
+SELECT * FROM ticketing_system
+
+11. desc bookings
+
+insert into  bookings
+(PT_ID,B_DATE,B_TIME , PID,TID) VALUES (125,'09-DEC-19','9:00 pm',705,105)
+
+SELECT * FROM  BOOKINGS
+
+delete from bookings where b_time= 7
+
+alter table
+bookings
+modify ( B_date date )
+
+12. DESC Dri_own
+
+insert into Dri_own 
+(DOID,ADATE, DID , OID) VALUES (135,'08-DEC-13',505,405)
+
+
+SELECT * FROM Dri_own
+
+13. desc contact
+
+insert into contact
+(CTA_PID,CDATE, TAID ,PID) VALUES (145,'04-NOV-19',205,705)
+
+SELECT * FROM contact
+
+ALTER TABLE contact
+DROP COLUMN TA_PID
+
+
+
